@@ -21,12 +21,12 @@ class StoreDataSeeder extends Seeder
         // 1. Demo Users
         $demoUser = User::firstOrCreate(
             ['email' => 'user@example.com'],
-            ['name' => 'عزام أحمد', 'password' => Hash::make('password123')]
+            ['name' => 'عزام أحمد', 'password' => Hash::make('password123'), 'email_verified_at' => now()]
         );
-        $reviewer1 = User::firstOrCreate(['email' => 'sarah@example.com'], ['name' => 'سارة المنصور', 'password' => Hash::make('password123')]);
-        $reviewer2 = User::firstOrCreate(['email' => 'khalid@example.com'], ['name' => 'خالد العمري', 'password' => Hash::make('password123')]);
-        $reviewer3 = User::firstOrCreate(['email' => 'omar@example.com'], ['name' => 'عمر القحطاني', 'password' => Hash::make('password123')]);
-        $reviewer4 = User::firstOrCreate(['email' => 'fatima@example.com'], ['name' => 'فاطمة الزهراني', 'password' => Hash::make('password123')]);
+        $reviewer1 = User::firstOrCreate(['email' => 'sarah@example.com'], ['name' => 'سارة المنصور', 'password' => Hash::make('password123'), 'email_verified_at' => now()]);
+        $reviewer2 = User::firstOrCreate(['email' => 'khalid@example.com'], ['name' => 'خالد العمري', 'password' => Hash::make('password123'), 'email_verified_at' => now()]);
+        $reviewer3 = User::firstOrCreate(['email' => 'omar@example.com'], ['name' => 'عمر القحطاني', 'password' => Hash::make('password123'), 'email_verified_at' => now()]);
+        $reviewer4 = User::firstOrCreate(['email' => 'fatima@example.com'], ['name' => 'فاطمة الزهراني', 'password' => Hash::make('password123'), 'email_verified_at' => now()]);
 
         // 2. Coupons
         Coupon::truncate();
