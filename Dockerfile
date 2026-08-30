@@ -26,8 +26,9 @@ COPY . .
 # Install composer dependencies
 RUN composer install --no-dev --optimize-autoloader --no-interaction
 
-# Set permissions
-RUN chmod -R 777 storage bootstrap/cache database
+# Set permissions & create database backup for persistent volume support
+RUN chmod -R 777 storage bootstrap/cache database && \
+    cp -r database /var/www/database_backup
 
 # Expose port
 EXPOSE 8000

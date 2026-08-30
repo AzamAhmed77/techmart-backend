@@ -27,6 +27,7 @@ Route::get('/health', function () {
 
 // Auto-seed Endpoint (fills rich categories & products)
 Route::get('/seed-database', function () {
+    \Illuminate\Support\Facades\Artisan::call('migrate', ['--force' => true]);
     \Illuminate\Support\Facades\Artisan::call('db:seed', ['--force' => true]);
     $categoriesCount = \App\Models\Product::distinct('category')->count('category');
     $productsCount = \App\Models\Product::count();
