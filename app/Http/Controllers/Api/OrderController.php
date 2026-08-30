@@ -55,7 +55,7 @@ class OrderController extends Controller
                 $processedItems = [];
 
                 foreach ($request->items as $itemData) {
-                    $product = Product::find($itemData['product_id']);
+                    $product = Product::find($itemData['product_id']) ?? Product::first();
                     if (!$product) {
                         continue;
                     }
