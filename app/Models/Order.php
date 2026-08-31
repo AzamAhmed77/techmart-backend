@@ -48,4 +48,16 @@ class Order extends Model
     {
         return 'TM-' . strtoupper(substr(uniqid(), -6)) . '-' . rand(100, 999);
     }
+
+    public function getStatusArabicAttribute(): string
+    {
+        return match ($this->status) {
+            'pending' => 'قيد الانتظار',
+            'processing' => 'قيد التجهيز',
+            'shipped' => 'تم الشحن',
+            'delivered' => 'تم التسليم',
+            'cancelled' => 'ملغي',
+            default => $this->status,
+        };
+    }
 }
